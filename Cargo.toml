@@ -1,0 +1,10 @@
+[package]
+name = "mondae"
+version = "0.1.0"
+description = "An inverse daemon runner, for running things in the foreground."
+edition = "2018"
+license = "MIT"
+
+[dependencies]
+anyhow = "1.0"
+structopt = "0.3.22"
