@@ -14,3 +14,9 @@ normal termination).
 ```
 gnome-terminal --tab -- mondae --name "my thing" -- my_thing --with args
 ```
+
+## Name
+
+The name `mondae` is for kind of a daemon where the parts have
+switched places, but also it souds like rural Swedish "mån dä", which
+can be used as "maybe so", or "does it, now?".

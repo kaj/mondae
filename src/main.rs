@@ -4,10 +4,8 @@ use std::io::{stdin, stdout, Write};
 use std::process::Command;
 use structopt::StructOpt;
 
-fn main() {
-    let cmd = Args::from_args();
-    //println!("{:#?}", cmd);
-    cmd.run().unwrap();
+fn main() -> Result<()> {
+    Args::from_args().run()
 }
 
 #[derive(StructOpt, Debug)]
@@ -32,7 +30,7 @@ impl Args {
             let result = Command::new(&self.command).args(&self.args).status()?;
             stdout().flush()?;
             self.termstatus(if result.success() { "🗸 " } else { "❌ " });
-            print!("\n\n\nDone ({}).  ", result);
+            print!("\n\nDone ({}).  ", result);
             if read_done()? {
                 return Ok(());
             }
