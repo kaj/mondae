@@ -2,24 +2,22 @@ use anyhow::Result;
 use std::ffi::OsString;
 use std::io::{stdin, stdout, Write};
 use std::process::Command;
-use structopt::StructOpt;
+use clap::Parser;
 
 fn main() -> Result<()> {
-    Args::from_args().run()
+    Args::parse().run()
 }
 
-#[derive(StructOpt, Debug)]
-#[structopt(about, author)]
+#[derive(Parser, Debug)]
+#[clap(about, author, version)]
 struct Args {
     /// Name to use for window title
-    #[structopt(short, long)]
+    #[clap(short, long)]
     name: Option<String>,
 
     /// The command to run
-    #[structopt()]
     command: OsString,
     /// Any arguments to the command
-    #[structopt()]
     args: Vec<OsString>,
 }
 
